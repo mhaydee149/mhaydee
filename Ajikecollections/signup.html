@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New Account</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, pink, purple);
+      color: black;
+    }
+    fieldset {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: none;
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    legend {
+      font-size: 24px;
+      text-align: center;
+      color: black;
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    input[type="radio"], input[type="checkbox"] {
+      width: auto;
+    }
+    input[type="submit"] {
+      background-color: purple;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover {
+      background-color: pink;
+    }
+    h2 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script>
+    function togglePassword() {
+      const passwordField = document.getElementById('password');
+      passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+    }
+  </script>
+</head>
+<body>
+  <legend>Create New Account</legend>
+  <fieldset>
+    
+    <form action="/submit" method="post" autocomplete="on">
+      <label for="FullName">Full Name:</label>
+      <input type="text" id="FullName" name="FullName" placeholder="Enter your full name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="new-password" required>
+      <label>
+        <input type="checkbox" onclick="togglePassword()"> Show Password
+      </label>
+      
+      <label>Gender:</label>
+      <label><input type="radio" name="gender" value="male" required> Male</label>
+      <label><input type="radio" name="gender" value="female" required> Female</label>
+      
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" placeholder="MM/DD/YYYY" min="1900-01-01" max="2024-12-31" required>
+      
+      <label for="country">Country:</label>
+      <select id="country" name="country" required>
+        <option value="">Select a country</option>
+        <option value="Canada">Canada</option>
+        <option value="Sudan">Sudan</option>
+        <option value="Chile">Chile</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Other">Other</option>
+      </select>
+      
+      <label>
+        <input type="checkbox" id="subscribe" name="subscribe"> Subscribe to our newsletter
+      </label>
+      
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" placeholder="Enter your message" rows="5"></textarea>
+      
+      <input type="submit" value="Submit">
+    </form>
+  </fieldset>
+</body>
+</html>
